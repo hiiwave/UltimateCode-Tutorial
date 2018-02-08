@@ -1,10 +1,10 @@
-## `main.md`
+# `main.md`
 
 因為我們的設計理念把`UCGGame`和discord解耦，其實在開發`UCGGame`的過程中我們並不需要透過discord來測試，而是可以在local端作測試，直到`UCGGame`開發完成後再接上discord。
 
-1. 先試著在`cmd`做`node main.js`，你應該會看到以下的輸出。目前它只對遊戲開始囉有反應，因為`UCGGame`和`UCGMessageHandler` 還沒實作完成。
+1. 先試著在`cmd`做`node main.js`，你應該會看到以下的輸出。目前它只對遊戲開始的指令有反應，因為`UCGGame`和`UCGMessageHandler` 還沒實作完成。
 ```
-> node .\main.js
+> node main.js
 onMessageMock: 終極密碼
 遊戲開始囉
 onMessageMock: 猜 250
@@ -44,4 +44,6 @@ onMessageMock('猜 2000');
 onMessageMock('猜 1000');
 ```
 
-3. (Optional) 依照我們剛剛的設計，`UCGGame`不是應該從discord上講話嗎，為什麼這裡它卻從console輸出呢？這是因為`main.js`做了`onMessageMock`函數來模擬`client.on('message', msg => {});`的進行，並傳假的message(`MessageMock`)給`UCGMessageHandler`。這個假的message具有與discord message相同的結構，且`msg.channel.send`被指定成`console.log`，因此會讓`UCGGame`的`chat`透過console輸出。
+3. (Optional，這其實有點難) 依照我們剛剛的設計，`UCGGame`不是應該從discord上講話嗎，為什麼這裡它卻從console輸出呢？這是因為`main.js`做了`onMessageMock`函數來模擬`client.on('message', msg => {});`的進行，並傳假的message(`MessageMock`)給`UCGMessageHandler`。這個假的message具有與discord message相同的結構，且`msg.channel.send`被指定成`console.log`，因此會讓`UCGGame`的`chat`透過console輸出。
+
+4. 可以開始動手啦！是不是還有不太懂的地方呢？隨時都可以提問哦～

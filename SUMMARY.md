@@ -6,8 +6,7 @@
 
 * [ucgmessagehandler.js](ucgmessagehandler.md)
 
-* [main.js](main.md)
-
 * [ucggame.js](ucggame.md)
 
+* [main.js](main.md)
   

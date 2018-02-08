@@ -1,4 +1,7 @@
-## UCGMessageHandler
+# UCGMessageHandler
+
+這個class負責從discord接收訊息，並將與終極密碼有關的部分委任給`UCGGame`處理。
+它是discord與`UCGGame`間的橋樑，判斷收到的訊息是否與終極密碼有關，若是，則轉譯後交給`UCGGame`來處理。
 
 1. 首先建立一個`UCGMessageHandler`class，`new`一個instance後利用`module.exports`導出，因此其它檔案(例如discord-example.js)可以`require`它。
 
@@ -19,7 +22,7 @@ module.exports = msgHandler;
 
 2. 注意到`UCGMessageHandler`有個property `game`是從ucggame.js導入的，偷看一下ucggame.js的`module.exports`會知道這是一個`UCGGame`的instance。
 
-3. 定義一個`handle` function，對照一下discord-example.js裡面是怎麼用它的。
+3. 定義一個`handle` function，對照一下discord-example.js裡面是怎麼用它的，看註解以了解它的用途。
 
 ```javascript
 UCGMessageHandler.prototype.handle = function (msg) {
@@ -40,7 +43,7 @@ UCGMessageHandler.prototype.handle = function (msg) {
 };
 ```
 
-4. 實作`handle`的subfunction `handleBeforeStart`，注意到`this.game`定義了一個property `chat`和一個function `start`。
+4. 實作`handle`的subfunction `handleBeforeStart`，注意到`this.game`定義了一個property `chat`和一個function `start`，將會從ucggame.js看到它們的定義。
 ```javascript
 UCGMessageHandler.prototype.handleBeforeStart = function (msg) {
   if (msg.content === '終極密碼') {
@@ -55,7 +58,7 @@ UCGMessageHandler.prototype.handleBeforeStart = function (msg) {
 };
 ```
 
-5. 任務來了，你是不是可以完成`handleAfterStart`呢？先別急著動手，等看完整份手冊再來開始實作。
+5. 任務來了，你是不是可以完成`handleAfterStart`呢？先別急著動手，等翻完整份手冊再來開始實作。
 ```javascript
 UCGMessageHandler.prototype.handleAfterStart = function (msg) {
   /**
@@ -68,7 +71,7 @@ UCGMessageHandler.prototype.handleAfterStart = function (msg) {
 ```
 
 
-### Complete Sample Code
+## Complete Sample Code
 
 ```javascript
 // ucgmessagehandler.js
