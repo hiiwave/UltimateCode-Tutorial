@@ -43,7 +43,7 @@
     };
     ```
 
-4. 實作`handle`的subfunction `handleBeforeStart`，注意到`this.game`定義了一個property `chat`和一個function `start`，將會從ucggame.js看到它們的定義。
+4. 實作`handle`的subfunction `handleBeforeStart`，注意到這裡用了`this.game`的property `chat`和一個function `start`，將會從ucggame.js看到它們的定義。
     ```javascript
     UCGMessageHandler.prototype.handleBeforeStart = function (msg) {
       if (msg.content === '終極密碼') {
