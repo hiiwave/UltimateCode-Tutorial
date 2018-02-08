@@ -18,31 +18,31 @@ onMessageMock: 猜 1000
   * TIP: 開發完成前可以先把`UCGGame`原應隨機產生的終極密碼改成一個定值，以方便測試，確認邏輯無誤後再改成隨機產生。
 
 
-```javascript
-// main.js
-/*jshint esversion: 6 */
+  ```javascript
+  // main.js
+  /*jshint esversion: 6 */
 
-const ucgHandler = require('./ucgmessagehandler');
+  const ucgHandler = require('./ucgmessagehandler');
 
-var MessageMock = function(str) {
-  this.content = str;
-  this.author = 'me';
-  this.channel = {};
-  this.channel.send = console.log;
-};
+  var MessageMock = function(str) {
+    this.content = str;
+    this.author = 'me';
+    this.channel = {};
+    this.channel.send = console.log;
+  };
 
-var onMessageMock = function(str) {
-  console.log('onMessageMock: ' + str);
-  var msgMock = new MessageMock(str)
-  ucgHandler.handle(msgMock);
-};
+  var onMessageMock = function(str) {
+    console.log('onMessageMock: ' + str);
+    var msgMock = new MessageMock(str)
+    ucgHandler.handle(msgMock);
+  };
 
-onMessageMock('終極密碼');
-onMessageMock('猜 250');
-onMessageMock('這句不會有反應');
-onMessageMock('猜 2000');
-onMessageMock('猜 1000');
-```
+  onMessageMock('終極密碼');
+  onMessageMock('猜 250');
+  onMessageMock('這句不會有反應');
+  onMessageMock('猜 2000');
+  onMessageMock('猜 1000');
+  ```
 
 3. (Optional，這其實有點難) 依照我們剛剛的設計，`UCGGame`不是應該從discord上講話嗎，為什麼這裡它卻從console輸出呢？這是因為`main.js`做了`onMessageMock`函數來模擬`client.on('message', msg => {});`的進行，並傳假的message(`MessageMock`)給`UCGMessageHandler`。這個假的message具有與discord message相同的結構，且`msg.channel.send`被指定成`console.log`，因此會讓`UCGGame`的`chat`透過console輸出。
 
