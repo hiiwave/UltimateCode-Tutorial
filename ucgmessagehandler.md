@@ -114,7 +114,7 @@ UCGMessageHandler.prototype.handleBeforeStart = function (msg) {
 UCGMessageHandler.prototype.handleAfterStart = function (msg) {
   /**
    * TODO: 判斷msg是不是猜數字的訊息。如果不是，return false。
-   * 如果是，告訴this.game誰猜num，讓this.game處理遊戲的邏輯。
+   * 如果是，告訴this.game誰猜了什麼數字，讓this.game處理遊戲的邏輯。
    * 你可能需要為UCGGame建立一到多個function。
    */
   return true;
