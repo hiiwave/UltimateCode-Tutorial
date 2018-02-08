@@ -1,4 +1,4 @@
-# `main.md`
+# `main.js`
 
 因為我們的設計理念把`UCGGame`和discord解耦，其實在開發`UCGGame`的過程中我們並不需要透過discord來測試，而是可以在local端作測試，直到`UCGGame`開發完成後再接上discord。
 

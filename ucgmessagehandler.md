@@ -1,4 +1,4 @@
-# UCGMessageHandler
+# `UCGMessageHandler`
 
 這個class負責從discord接收訊息，並將與終極密碼有關的部分委任給`UCGGame`處理。
 它是discord與`UCGGame`間的橋樑，判斷收到的訊息是否與終極密碼有關，若是，則轉譯後交給`UCGGame`來處理。
